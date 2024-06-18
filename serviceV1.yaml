@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-deploy
+  labels:
+    app : my-grafana-application
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: k8s
+  template:
+    metadata:
+      labels:
+        project: k8s
+    spec:
+      containers:
+        - name : k8s-grafana
+          image: grafana/grafana:latest
+          ports:
+           - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-servicev1
+  labels:
+    env  : prod
+    owner: KirillLushnikov
+spec:
+  selector:
+    project: k8s
+  ports:
+    - name      : app-listener
+      protocol  : TCP
+      port      : 3000
+      targetPort: 3000
+  type: NodePort
