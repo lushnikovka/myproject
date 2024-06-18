@@ -1,0 +1,6 @@
+#https://github.com/bitnami/charts/tree/main/bitnami/apache#INSTALLING-THE-CHART
+
+cloneHtdocsFromGit:
+  enabled   : true
+  repository: https://github.com/adv4000/simplewebpage
+  branch    : main

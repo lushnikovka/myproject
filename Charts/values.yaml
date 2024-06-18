@@ -1,0 +1,4 @@
+container:
+  image: grafana/grafana:latest
+
+replicaCount: 2

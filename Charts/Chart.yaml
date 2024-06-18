@@ -1,0 +1,15 @@
+apiVersion: v2
+name       : App-HelmChart
+description: My Helm chart from Kuber
+type       : application
+version    : 0.1.0
+appVersion : "1.2.3"
+
+
+keywords:
+  - grafana
+  - kirilllushnikov
+
+maintainers:
+  - name : Kirill Lushnikov
+    email: kirilllushnikov@yandex.ru

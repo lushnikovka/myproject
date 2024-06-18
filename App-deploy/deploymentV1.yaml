@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-deploy
+  labels:
+    app  : my-k8s-application
+    env  : prod
+    owner: KirillLushnikov
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: k8s
+  template:
+    metadata:
+      labels:
+        project: k8s
+    spec:
+      containers:
+        - name : k8s-grafana
+          image: grafana/grafana:latest
+          ports:
+           - containerPort: 3000
